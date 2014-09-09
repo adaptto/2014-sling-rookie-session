@@ -3,3 +3,15 @@ pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.next
 release.properties
+
+maven-eclipse.xml
+node_modules
+.nodejs
+.project
+.classpath
+.settings
+.externalToolBuilders
+.pmd
+.checkstyle
+.idea
+.iml
