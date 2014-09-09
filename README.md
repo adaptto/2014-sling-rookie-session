@@ -20,7 +20,7 @@ AEM6 has already everyting in place to run the demo.
 mvn -Dsling.url=http://localhost:4502 clean install sling:install
 ```
 
-- Go to demo intro page (http://localhost:4502/content/adaptto.html)
+- Go to demo intro page [http://localhost:4502/content/adaptto.html](http://localhost:4502/content/adaptto.html)
 
 
 
@@ -42,7 +42,7 @@ MAVEN_OPTS="-Xmx512M -XX:MaxPermSize=512m"
 git clone https://github.com/apache/sling.git sling
 ```
 
-  or alternatively use SVN
+  or *alternatively* use SVN
 ```
 svn co http://svn.eu.apache.org/repos/asf/sling/trunk sling
 ```
