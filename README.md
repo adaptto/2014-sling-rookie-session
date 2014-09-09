@@ -8,7 +8,7 @@ http://adapt.to/2014/en/schedule/rookie-session---aem-certification.html
 Running Demo in Sling Launchpad
 -------------------------------
 
-### Requirements
+#### Requirements
 
 - Make sure you have Maven 3.0.4 or higher installed
 - Set system environment variable
@@ -16,7 +16,7 @@ Running Demo in Sling Launchpad
 MAVEN_OPTS="-Xmx512M -XX:MaxPermSize=512m"
 ```
 
-### Build and start Sling Launchpad
+#### Build and start Sling Launchpad
 
 - Checkout Sling trunk via GIT
 ```
@@ -39,10 +39,11 @@ mvn -Dmaven.test.skip=true clean install
 java -jar launchpad/builder/target/org.apache.sling.launchpad-7-SNAPSHOT-standalone.jar -f -
 ```
 
-- Launchpad is now running at http://localhost:8080
+- Launchpad is now running at
+http://localhost:8080
    
 
-### Deploy Demo Application
+#### Deploy Demo Application
 
 - Go to root folder of demo application
 - Build demo application and deploy to Sling Launchpad
@@ -50,7 +51,8 @@ java -jar launchpad/builder/target/org.apache.sling.launchpad-7-SNAPSHOT-standal
 mvn -Dsling.url=http://localhost:8080 clean install sling:install
 ```
 
-- Go to demo intro page http://localhost:8080/content/adaptto.html
+- Go to demo intro page
+http://localhost:8080/content/adaptto.html
 
 
 Running Demo in AEM6
@@ -59,7 +61,7 @@ Running Demo in AEM6
 AEM6 has already everyting in place to run the demo.
 
 
-### Deploy Demo Application
+#### Deploy Demo Application
 
 - Go to root folder of demo application
 - Build demo application and deploy to AEM6
