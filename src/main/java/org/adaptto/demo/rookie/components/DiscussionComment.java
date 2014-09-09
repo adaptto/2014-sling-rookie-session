@@ -26,7 +26,7 @@ import java.util.Date;
 
 import javax.servlet.ServletException;
 
-import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.felix.scr.annotations.sling.SlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -52,9 +52,9 @@ public class DiscussionComment extends SlingSafeMethodsServlet {
 
     // output comment as HTML
     out.write("<p>");
-    out.write("<em>" + StringEscapeUtils.escapeHtml4(author)
+    out.write("<em>" + StringEscapeUtils.escapeHtml(author)
         + " (" + DateFormat.getDateTimeInstance().format(created) + ")</em><br/>");
-    out.write(StringEscapeUtils.escapeHtml4(text));
+    out.write(StringEscapeUtils.escapeHtml(text));
     out.write("</p>");
 
   }

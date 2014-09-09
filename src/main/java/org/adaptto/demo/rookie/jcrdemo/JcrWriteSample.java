@@ -55,7 +55,7 @@ public class JcrWriteSample extends SlingSafeMethodsServlet {
   void writeJcrContent(Session pSession) throws RepositoryException {
 
     // get node directly
-    Node talk = pSession.getNode("/content/adaptto/2013/day1/rookie-session");
+    Node talk = pSession.getNode("/content/adaptto/2014/day1/rookie-session");
 
     // write property values
     talk.setProperty("jcr:title", "My Rookie Session");
