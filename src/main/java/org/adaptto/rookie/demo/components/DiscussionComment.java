@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.demo.rookie.components;
+package org.adaptto.rookie.demo.components;
 
 import java.io.IOException;
 import java.io.Writer;

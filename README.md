@@ -60,7 +60,9 @@ java -jar launchpad/builder/target/org.apache.sling.launchpad-7-SNAPSHOT-standal
 
 - Launchpad is now running at
 [http://localhost:8080](http://localhost:8080)
-   
+
+- If you want to write data to the repository (e.g. add a talk to a comment) you have to log in using the "Login" link displayed on the left site of the Intro Screen.
+
 
 #### Deploy Demo Application
 

@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.demo.rookie.jcrdemo;
+package org.adaptto.rookie.demo.jcrdemo;
 
 import java.io.IOException;
 import java.util.Arrays;

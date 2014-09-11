@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.demo.rookie.services;
+package org.adaptto.rookie.demo.services;
 
 import java.util.Iterator;
 
@@ -61,7 +61,7 @@ public class CommentCleanUp implements Runnable {
     try {
 
       // get administrative resolver
-      adminResolver = resourceResolverFactory.getAdministrativeResourceResolver(null);
+      adminResolver = resourceResolverFactory.getServiceResourceResolver(null);
 
       // fire query to get all comment nodes
       log.debug("Query for all comments.");
