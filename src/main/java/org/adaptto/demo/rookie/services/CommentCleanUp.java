@@ -51,9 +51,9 @@ public class CommentCleanUp implements Runnable {
   private static final String PROPERTY_CRON_EXPRESSION = "scheduler.expression";
 
   @Reference
-  ResourceResolverFactory mResourceResolverFactory;
+  ResourceResolverFactory resourceResolverFactory;
 
-  private final Logger mLog = LoggerFactory.getLogger(getClass());
+  private final Logger log = LoggerFactory.getLogger(getClass());
 
   @Override
   public void run() {
@@ -61,10 +61,10 @@ public class CommentCleanUp implements Runnable {
     try {
 
       // get administrative resolver
-      adminResolver = mResourceResolverFactory.getAdministrativeResourceResolver(null);
+      adminResolver = resourceResolverFactory.getAdministrativeResourceResolver(null);
 
       // fire query to get all comment nodes
-      mLog.debug("Query for all comments.");
+      log.debug("Query for all comments.");
       Iterator<Resource> comments = adminResolver.findResources("SELECT * "
           + "FROM [sling:OrderedFolder] "
           + "WHERE ISDESCENDANTNODE([/content/adaptto]) "
@@ -73,11 +73,11 @@ public class CommentCleanUp implements Runnable {
       // iterate over all comments and remove those that have empty text
       while (comments.hasNext()) {
         Resource comment = comments.next();
-        mLog.debug("Check comment {}", comment.getPath());
+        log.debug("Check comment {}", comment.getPath());
 
         ValueMap props = comment.getValueMap();
         if (StringUtils.isEmpty(props.get("text", String.class))) {
-          mLog.info("Delete empty comment {}", comment.getPath());
+          log.info("Delete empty comment {}", comment.getPath());
           adminResolver.delete(comment);
         }
       }
@@ -89,10 +89,10 @@ public class CommentCleanUp implements Runnable {
 
     }
     catch (LoginException ex) {
-      mLog.error("Error getting administrativ resolver.", ex);
+      log.error("Error getting administrativ resolver.", ex);
     }
     catch (PersistenceException ex) {
-      mLog.error("Error persisting changes to repository.", ex);
+      log.error("Error persisting changes to repository.", ex);
     }
     finally {
       if (adminResolver!=null) {

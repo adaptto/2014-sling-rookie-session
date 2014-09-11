@@ -34,31 +34,29 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 
 /**
- * JCR read example
+ * JCR read example.
  */
 @SlingServlet(resourceTypes="/apps/rookiedemo/components/index", selectors="jcrreadsample")
 public class JcrReadSample extends SlingSafeMethodsServlet {
   private static final long serialVersionUID = -2975383706747400409L;
 
   @Override
-  protected void doGet(SlingHttpServletRequest pRequest, SlingHttpServletResponse pResponse) throws ServletException, IOException {
-
-    Session session = pRequest.getResourceResolver().adaptTo(Session.class);
-
+  protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+    Session session = request.getResourceResolver().adaptTo(Session.class);
     try {
       String jcrContent = readJcrContent(session);
-      pResponse.setContentType("text/plain;charset=UTF-8");
-      pResponse.getWriter().write(jcrContent);
+      response.setContentType("text/plain;charset=UTF-8");
+      response.getWriter().write(jcrContent);
     }
     catch (RepositoryException ex) {
       throw new ServletException(ex);
     }
   }
 
-  String readJcrContent(Session pSession) throws RepositoryException {
+  String readJcrContent(Session session) throws RepositoryException {
 
     // get node directly
-    Node day1 = pSession.getNode("/content/adaptto/2013/day1");
+    Node day1 = session.getNode("/content/adaptto/2013/day1");
 
     // get first child node
     Node firstTalk = day1.getNodes().nextNode();

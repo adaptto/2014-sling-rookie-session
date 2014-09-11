@@ -39,20 +39,20 @@ public class ResourceSiblingNavigator extends SlingSafeMethodsServlet {
   private static final long serialVersionUID = 6609210109107816202L;
 
   @Override
-  protected void doGet(SlingHttpServletRequest pRequest, SlingHttpServletResponse pResponse) throws ServletException, IOException {
-    Writer out = pResponse.getWriter();
+  protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+    Writer out = response.getWriter();
 
     // get previous/next sibling
     Resource previousResource = null;
     Resource currentResource = null;
     Resource nextResource = null;
-    for (Resource sibling : pRequest.getResource().getParent().getChildren()) {
+    for (Resource sibling : request.getResource().getParent().getChildren()) {
       if (currentResource!=null) {
         nextResource = sibling;
         break;
       }
-      else if (StringUtils.equals(sibling.getPath(), pRequest.getResource().getPath())) {
-        currentResource = pRequest.getResource();
+      else if (StringUtils.equals(sibling.getPath(), request.getResource().getPath())) {
+        currentResource = request.getResource();
       }
       else {
         previousResource = sibling;

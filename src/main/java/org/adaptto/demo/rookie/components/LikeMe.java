@@ -36,34 +36,34 @@ import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 
 /**
- * Like update action using Sling CRUD API to write to JCR
+ * Like update action using Sling CRUD API to write to repository.
  */
 @SlingServlet(resourceTypes="/apps/rookiedemo/components/talk", selectors="likeme", methods="POST")
 public class LikeMe extends SlingAllMethodsServlet {
   private static final long serialVersionUID = -827047552677135151L;
 
   @Override
-  protected void doPost(SlingHttpServletRequest pRequest, SlingHttpServletResponse pResponse) throws ServletException, IOException {
+  protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
 
-    updateLikeCounter(pRequest);
+    updateLikeCounter(request);
 
     // return to main view
-    pResponse.sendRedirect(pRequest.getResource().getPath() + ".html");
+    response.sendRedirect(request.getResource().getPath() + ".html");
   }
 
-  private void updateLikeCounter(SlingHttpServletRequest pRequest) throws PersistenceException {
+  private void updateLikeCounter(SlingHttpServletRequest request) throws PersistenceException {
 
-    ValueMap props = pRequest.getResource().getValueMap();
+    ValueMap props = request.getResource().getValueMap();
 
     // check if a user with this ip address has already liked this
-    String ipAddress = pRequest.getRemoteAddr();
+    String ipAddress = request.getRemoteAddr();
     String[] likedAddresses = props.get("likedAddresses", new String[0]);
     if (ArrayUtils.contains(likedAddresses, ipAddress)) {
       return;
     }
 
     // increment like counter and store ip address
-    ValueMap writeProps = pRequest.getResource().adaptTo(ModifiableValueMap.class);
+    ValueMap writeProps = request.getResource().adaptTo(ModifiableValueMap.class);
     writeProps.put("likes", writeProps.get("likes", 0L) + 1);
 
     List<String> updatedLikedAddresses = new ArrayList<>(Arrays.asList(likedAddresses));
@@ -71,7 +71,7 @@ public class LikeMe extends SlingAllMethodsServlet {
     writeProps.put("likedAddresses", updatedLikedAddresses.toArray());
 
     // save to repository
-    pRequest.getResourceResolver().commit();
+    request.getResourceResolver().commit();
 
   }
 

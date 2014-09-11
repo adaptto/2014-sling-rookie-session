@@ -41,11 +41,11 @@ public class DiscussionComment extends SlingSafeMethodsServlet {
   private static final long serialVersionUID = -6549518176129073294L;
 
   @Override
-  protected void doGet(SlingHttpServletRequest pRequest, SlingHttpServletResponse pResponse) throws ServletException, IOException {
-    Writer out = pResponse.getWriter();
+  protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+    Writer out = response.getWriter();
 
     // read properties via Sling API
-    ValueMap props = pRequest.getResource().getValueMap();
+    ValueMap props = request.getResource().getValueMap();
     String author = props.get("author", "Anonymous");
     Date created = props.get("jcr:created", Date.class);
     String text = props.get("text", "");

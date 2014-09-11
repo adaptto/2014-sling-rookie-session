@@ -32,30 +32,28 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 
 /**
- * JCR write example
+ * JCR write example.
  */
 @SlingServlet(resourceTypes="/apps/rookiedemo/components/index", selectors="jcrwritesample")
 public class JcrWriteSample extends SlingSafeMethodsServlet {
   private static final long serialVersionUID = -3387175284108086362L;
 
   @Override
-  protected void doGet(SlingHttpServletRequest pRequest, SlingHttpServletResponse pResponse) throws ServletException, IOException {
-
-    Session session = pRequest.getResourceResolver().adaptTo(Session.class);
-
+  protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+    Session session = request.getResourceResolver().adaptTo(Session.class);
     try {
       writeJcrContent(session);
-      pResponse.sendRedirect(pRequest.getResource().getPath() + ".jcrreadsample.txt");
+      response.sendRedirect(request.getResource().getPath() + ".jcrreadsample.txt");
     }
     catch (RepositoryException ex) {
       throw new ServletException(ex);
     }
   }
 
-  void writeJcrContent(Session pSession) throws RepositoryException {
+  void writeJcrContent(Session session) throws RepositoryException {
 
     // get node directly
-    Node talk = pSession.getNode("/content/adaptto/2014/day1/rookie-session");
+    Node talk = session.getNode("/content/adaptto/2014/day1/rookie-session");
 
     // write property values
     talk.setProperty("jcr:title", "My Rookie Session");
@@ -63,7 +61,7 @@ public class JcrWriteSample extends SlingSafeMethodsServlet {
     talk.setProperty("tags", new String[] { "Sling", "JCR", "Rookie" });
 
     // save changes to repository (implicit transaction)
-    pSession.save();
+    session.save();
   }
 
 }

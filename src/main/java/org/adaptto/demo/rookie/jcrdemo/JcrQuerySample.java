@@ -44,24 +44,22 @@ public class JcrQuerySample extends SlingSafeMethodsServlet {
   private static final long serialVersionUID = -8909492203133496844L;
 
   @Override
-  protected void doGet(SlingHttpServletRequest pRequest, SlingHttpServletResponse pResponse) throws ServletException, IOException {
-
-    Session session = pRequest.getResourceResolver().adaptTo(Session.class);
-
+  protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+    Session session = request.getResourceResolver().adaptTo(Session.class);
     try {
       String jcrContent = queryJcrContent(session);
-      pResponse.setContentType("text/plain;charset=UTF-8");
-      pResponse.getWriter().write(jcrContent);
+      response.setContentType("text/plain;charset=UTF-8");
+      response.getWriter().write(jcrContent);
     }
     catch (RepositoryException ex) {
       throw new ServletException(ex);
     }
   }
 
-  String queryJcrContent(Session pSession) throws RepositoryException {
+  String queryJcrContent(Session session) throws RepositoryException {
 
     // get query manager
-    QueryManager queryManager = pSession.getWorkspace().getQueryManager();
+    QueryManager queryManager = session.getWorkspace().getQueryManager();
 
     // query for all nodes with tag "JCR"
     Query query = queryManager.createQuery("/jcr:root/content/adaptto//*[tags='JCR']", Query.XPATH);
