@@ -4,6 +4,8 @@ adaptTo() 2014 - Sling Rookie Session - JSP Demo
 This is the companion source code for the Sling Rookie Session held at adaptTo() 2014 in Berlin.
 http://adapt.to/2014/en/schedule/rookie-session---aem-certification.html
 
+This Demo uses the JSP Scripting Language.
+
 
 
 Running Demo in AEM6

@@ -4,6 +4,8 @@ adaptTo() 2014 - Sling Rookie Session - Sightly Demo
 This is the companion source code for the Sling Rookie Session held at adaptTo() 2014 in Berlin.
 http://adapt.to/2014/en/schedule/rookie-session---aem-certification.html
 
+Ths demo uses the [Sightly Scripting Language](http://docs.adobe.com/docs/en/aem/6-0/develop/sightly.html).
+
 
 
 Running Demo in AEM6
@@ -27,7 +29,7 @@ mvn -Dsling.url=http://localhost:4502 clean install sling:install
 Running Demo in Sling Launchpad
 -------------------------------
 
-It is not possible to run this demo in Sling Launchpad.
+It is not possible to run this demo in Sling Launchpad because it does not support Sightly.
 
 
 
