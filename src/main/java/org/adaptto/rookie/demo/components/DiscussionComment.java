@@ -22,15 +22,15 @@ package org.adaptto.rookie.demo.components;
 import java.io.IOException;
 import java.io.Writer;
 import java.text.DateFormat;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 
+import org.adaptto.rookie.demo.models.Comment;
 import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.felix.scr.annotations.sling.SlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 
 /**
@@ -44,19 +44,20 @@ public class DiscussionComment extends SlingSafeMethodsServlet {
   protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
     Writer out = response.getWriter();
 
-    // read properties via Sling API
-    ValueMap props = request.getResource().getValueMap();
-    String author = props.get("author", "Anonymous");
-    Date created = props.get("jcr:created", Date.class);
-    String text = props.get("text", "");
+    // read comment via Sling Model
+    Comment comment = request.getResource().adaptTo(Comment.class);
 
     // output comment as HTML
     out.write("<p>");
-    out.write("<em>" + StringEscapeUtils.escapeHtml(author)
-        + " (" + DateFormat.getDateTimeInstance().format(created) + ")</em><br/>");
-    out.write(StringEscapeUtils.escapeHtml(text));
+    out.write("<em>" + escapeHtml(comment.getAuthor())
+        + " (" + DateFormat.getDateTimeInstance().format(comment.getCreated()) + ")</em><br/>");
+    out.write(escapeHtml(comment.getText()));
     out.write("</p>");
 
+  }
+
+  private String escapeHtml(String value) {
+    return StringEscapeUtils.escapeHtml(StringUtils.defaultString(value));
   }
 
 }

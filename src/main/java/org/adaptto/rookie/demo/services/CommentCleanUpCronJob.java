@@ -23,7 +23,7 @@ import java.util.Iterator;
 
 import javax.jcr.query.Query;
 
-import org.apache.commons.lang.StringUtils;
+import org.adaptto.rookie.demo.models.Comment;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Reference;
@@ -33,7 +33,6 @@ import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,7 +42,7 @@ import org.slf4j.LoggerFactory;
 @Component(immediate = true, metatype = true, label = "adaptTo() Rookie Demo Comment Cleanup Service",
     description = "Removes all empty comments.")
 @Service(value = Runnable.class)
-public class CommentCleanUp implements Runnable {
+public class CommentCleanUpCronJob implements Runnable {
 
   @Property(value = "0 0/15 * * * ?", // run every 15 minutes
   label = "Scheduler Expression",
@@ -51,7 +50,7 @@ public class CommentCleanUp implements Runnable {
   private static final String PROPERTY_CRON_EXPRESSION = "scheduler.expression";
 
   @Reference
-  ResourceResolverFactory resourceResolverFactory;
+  private ResourceResolverFactory resourceResolverFactory;
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
@@ -65,20 +64,20 @@ public class CommentCleanUp implements Runnable {
 
       // fire query to get all comment nodes
       log.debug("Query for all comments.");
-      Iterator<Resource> comments = adminResolver.findResources("SELECT * "
+      Iterator<Resource> commentResources = adminResolver.findResources("SELECT * "
           + "FROM [sling:OrderedFolder] "
           + "WHERE ISDESCENDANTNODE([/content/adaptto]) "
           + "AND [sling:resourceType]='/apps/rookiedemo/components/social/comment'", Query.JCR_SQL2);
 
       // iterate over all comments and remove those that have empty text
-      while (comments.hasNext()) {
-        Resource comment = comments.next();
-        log.debug("Check comment {}", comment.getPath());
+      while (commentResources.hasNext()) {
+        Resource commentResource = commentResources.next();
+        log.debug("Check comment {}", commentResource.getPath());
 
-        ValueMap props = comment.getValueMap();
-        if (StringUtils.isEmpty(props.get("text", String.class))) {
-          log.info("Delete empty comment {}", comment.getPath());
-          adminResolver.delete(comment);
+        Comment comment = commentResource.adaptTo(Comment.class);
+        if (comment.isEmpty()) {
+          log.info("Delete empty comment {}", commentResource.getPath());
+          adminResolver.delete(commentResource);
         }
       }
 
