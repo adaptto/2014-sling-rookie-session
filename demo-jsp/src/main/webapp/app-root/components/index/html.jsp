@@ -10,7 +10,7 @@
 
   <body>
 
-    <h1>adaptTo() Rookie Demo</h1>
+    <h1>adaptTo() Rookie JSP Demo</h1>
 
     <%-- Include childlist via selector view inherited from super component "common" --%>
     <h2>Overview</h2>

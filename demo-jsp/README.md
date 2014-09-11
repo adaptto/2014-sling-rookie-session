@@ -1,7 +1,7 @@
 adaptTo() 2014 - Sling Rookie Session - JSP Demo
 ================================================
 
-This is the companion source code for the Sling Rookie Session held at adaptTo() 2014 in Berlin.
+This is the companion source code for the Sling Rookie Session held at adaptTo() 2014 in Berlin.<br/>
 http://adapt.to/2014/en/schedule/rookie-session---aem-certification.html
 
 This Demo uses the JSP Scripting Language.
@@ -88,5 +88,5 @@ For developing the JSPs with instant feedback in the running instance deploy the
 [org.apache.sling.fsresource-1.1.4.jar](http://central.maven.org/maven2/org/apache/sling/org.apache.sling.fsresource/1.1.4/org.apache.sling.fsresource-1.1.4.jar)
 
 And create a new configuration "Apache Sling Filesystem Resource Provider" with
-- Provider Root = `/apps/rookiedemo`
+- Provider Root = `/apps/rookiejspdemo`
 - Filesystem Root = `<project root>\src\main\webapp\app-root`

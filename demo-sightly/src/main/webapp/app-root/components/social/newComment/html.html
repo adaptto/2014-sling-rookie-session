@@ -1,23 +1,18 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling"%>
-
-<sling:defineObjects/>
-
 <p>
 
-  <%-- Post to "*" which means create a new resource with unique name --%>
+  <!--/* Post to "*" which means create a new resource with unique name */-->
   <form action="${resource.path}/discussion/*" method="POST" enctype="multipart/form-data">
 
-    <%-- Define resource type for new node --%>
+    <!--/* Define resource type for new node */-->
     <input type="hidden" name="sling:resourceType" value="/apps/rookiedemo/components/social/comment"/>
 
-    <%-- Ensure proper charset encoding --%>
+    <!--/* Ensure proper charset encoding */-->
     <input type="hidden" name="_charset_" value="UTF-8"/>
 
-    <%-- Redirect to main view after writing content --%>
+    <!--/* Redirect to main view after writing content */-->
     <input type="hidden" name=":redirect" value="${resource.path}.html"/>
 
-    <%-- Post to properties "author" and "text" in repository --%>
+    <!--/* Post to properties "author" and "text" in repository */-->
     <table>
       <tr>
         <td>Your name:</td>

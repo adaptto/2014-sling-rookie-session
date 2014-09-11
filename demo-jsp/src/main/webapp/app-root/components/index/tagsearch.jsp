@@ -15,7 +15,7 @@
 
     <h1>adaptTo() Rookie Demo - Search by tag: <c:out value="${search.tag}"/></h1>
 
-    <%-- Execute XPath query and display results --%>
+    <%-- Display search results --%>
     <ul>
       <c:forEach var="child" items="${search.result}">
         <sling:adaptTo var="props" adaptable="${child}" adaptTo="org.apache.sling.api.resource.ValueMap"/>

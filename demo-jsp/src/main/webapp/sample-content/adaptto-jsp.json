@@ -1,7 +1,7 @@
 {
   "jcr:primaryType": "sling:OrderedFolder",
   "sling:resourceType": "/apps/rookiejspdemo/components/index",
-  "jcr:title": "adaptTo() Rookie Demo",
+  "jcr:title": "adaptTo() Rookie JSP Demo",
 
   "2014": {
     "jcr:primaryType": "sling:OrderedFolder",

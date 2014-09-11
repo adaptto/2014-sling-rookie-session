@@ -1,7 +1,7 @@
 {
   "jcr:primaryType": "sling:OrderedFolder",
   "sling:resourceType": "/apps/rookiedemo/components/index",
-  "jcr:title": "adaptTo() Rookie Demo",
+  "jcr:title": "adaptTo() Rookie Sightly Demo",
 
   "2014": {
     "jcr:primaryType": "sling:OrderedFolder",
@@ -36,7 +36,7 @@
 
       "lunch": {
         "jcr:primaryType": "sling:OrderedFolder",
-        "sling:resourceType": "/apps/rookiedemo/components/break",
+        "sling:resourceType": "/apps/rookiedemo/components/breakItem",
         "jcr:title": "Lunch",
         "startDate": "20140923T103000Z",
         "endDate": "20140923T113000Z",
@@ -56,7 +56,7 @@
 
       "break": {
         "jcr:primaryType": "sling:OrderedFolder",
-        "sling:resourceType": "/apps/rookiedemo/components/break",
+        "sling:resourceType": "/apps/rookiedemo/components/breakItem",
         "jcr:title": "Break",
         "startDate": "20140923T120000Z",
         "endDate": "20140923T121500Z",
