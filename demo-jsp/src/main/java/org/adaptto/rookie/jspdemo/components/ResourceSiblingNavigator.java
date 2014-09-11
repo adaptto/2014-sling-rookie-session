@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.rookie.demo.components;
+package org.adaptto.rookie.jspdemo.components;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -34,7 +34,7 @@ import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 /**
  * Navigation links for talk "sibling" nodes next talk/previous talk.
  */
-@SlingServlet(resourceTypes="/apps/rookiedemo/components/resourceSiblingNavigator")
+@SlingServlet(resourceTypes="/apps/rookiejspdemo/components/resourceSiblingNavigator")
 public class ResourceSiblingNavigator extends SlingSafeMethodsServlet {
   private static final long serialVersionUID = 6609210109107816202L;
 

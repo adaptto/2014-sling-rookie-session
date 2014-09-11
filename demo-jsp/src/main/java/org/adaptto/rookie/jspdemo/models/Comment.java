@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.rookie.demo.models;
+package org.adaptto.rookie.jspdemo.models;
 
 import java.util.Date;
 

@@ -17,13 +17,15 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.rookie.demo.jcrdemo;
+package org.adaptto.rookie.jspdemo.jcrdemo;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.jcr.Value;
 import javax.servlet.ServletException;
 
 import org.apache.felix.scr.annotations.sling.SlingServlet;
@@ -32,36 +34,47 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 
 /**
- * JCR write example.
+ * JCR read example.
  */
-@SlingServlet(resourceTypes="/apps/rookiedemo/components/index", selectors="jcrwritesample")
-public class JcrWriteSample extends SlingSafeMethodsServlet {
-  private static final long serialVersionUID = -3387175284108086362L;
+@SlingServlet(resourceTypes="/apps/rookiejspdemo/components/index", selectors="jcrreadsample")
+public class JcrReadSample extends SlingSafeMethodsServlet {
+  private static final long serialVersionUID = -2975383706747400409L;
 
   @Override
   protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
     Session session = request.getResourceResolver().adaptTo(Session.class);
     try {
-      writeJcrContent(session);
-      response.sendRedirect(request.getResource().getPath() + ".jcrreadsample.txt");
+      String jcrContent = readJcrContent(session);
+      response.setContentType("text/plain;charset=UTF-8");
+      response.getWriter().write(jcrContent);
     }
     catch (RepositoryException ex) {
       throw new ServletException(ex);
     }
   }
 
-  void writeJcrContent(Session session) throws RepositoryException {
+  String readJcrContent(Session session) throws RepositoryException {
 
     // get node directly
-    Node talk = session.getNode("/content/adaptto/2014/day1/rookie-session");
+    Node day1 = session.getNode("/content/adaptto/2013/day1");
 
-    // write property values
-    talk.setProperty("jcr:title", "My Rookie Session");
-    talk.setProperty("durationMin", talk.getProperty("durationMin").getLong() + 10);
-    talk.setProperty("tags", new String[] { "Sling", "JCR", "Rookie" });
+    // get first child node
+    Node firstTalk = day1.getNodes().nextNode();
 
-    // save changes to repository (implicit transaction)
-    session.save();
+    // read property values
+    String title = firstTalk.getProperty("jcr:title").getString();
+    long duration = firstTalk.getProperty("durationMin").getLong();
+
+    // read multi-valued property
+    Value[] tagValues = firstTalk.getProperty("tags").getValues();
+    String[] tags = new String[tagValues.length];
+    for (int i=0; i<tagValues.length; i++) {
+      tags[i] = tagValues[i].getString();
+    }
+
+    return "First talk: " + title + " (" + duration + " min)\n"
+        + "Tags: " + Arrays.toString(tags) + "\n"
+        + "Path: " + firstTalk.getPath();
   }
 
 }

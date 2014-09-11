@@ -19,7 +19,7 @@
       <a href="${resource.parent.path}.html">Back to parent</a>
 
       <%-- Integrate java-based sling component via it's resource type to render previous/next links --%>
-      <sling:include resourceType="/apps/rookiedemo/components/resourceSiblingNavigator"/>
+      <sling:include resourceType="/apps/rookiejspdemo/components/resourceSiblingNavigator"/>
 
     </p>
 

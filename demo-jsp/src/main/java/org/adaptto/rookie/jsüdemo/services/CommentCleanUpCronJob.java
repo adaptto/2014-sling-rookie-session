@@ -17,13 +17,13 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.rookie.demo.services;
+package org.adaptto.rookie.jsüdemo.services;
 
 import java.util.Iterator;
 
 import javax.jcr.query.Query;
 
-import org.adaptto.rookie.demo.models.Comment;
+import org.adaptto.rookie.jspdemo.models.Comment;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Reference;
@@ -67,7 +67,7 @@ public class CommentCleanUpCronJob implements Runnable {
       Iterator<Resource> commentResources = adminResolver.findResources("SELECT * "
           + "FROM [sling:OrderedFolder] "
           + "WHERE ISDESCENDANTNODE([/content/adaptto]) "
-          + "AND [sling:resourceType]='/apps/rookiedemo/components/social/comment'", Query.JCR_SQL2);
+          + "AND [sling:resourceType]='/apps/rookiejspdemo/components/social/comment'", Query.JCR_SQL2);
 
       // iterate over all comments and remove those that have empty text
       while (commentResources.hasNext()) {

@@ -5,7 +5,7 @@
 <sling:defineObjects/>
 
 <%-- Search all talks with the given tag name using a Sling Model --%>
-<sling:adaptTo var="search" adaptable="${slingRequest}" adaptTo="org.adaptto.rookie.demo.models.TagSearchController"/>
+<sling:adaptTo var="search" adaptable="${slingRequest}" adaptTo="org.adaptto.rookie.jspdemo.models.TagSearchController"/>
 
 <html>
 

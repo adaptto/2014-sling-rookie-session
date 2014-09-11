@@ -11,4 +11,4 @@
 </c:forEach>
 
 <%-- Render new comment form --%>
-<sling:include resourceType="/apps/rookiedemo/components/social/newComment"/>
+<sling:include resourceType="/apps/rookiejspdemo/components/social/newComment"/>

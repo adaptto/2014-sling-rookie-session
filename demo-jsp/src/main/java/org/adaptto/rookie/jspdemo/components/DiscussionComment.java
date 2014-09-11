@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.rookie.demo.components;
+package org.adaptto.rookie.jspdemo.components;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -25,7 +25,7 @@ import java.text.DateFormat;
 
 import javax.servlet.ServletException;
 
-import org.adaptto.rookie.demo.models.Comment;
+import org.adaptto.rookie.jspdemo.models.Comment;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.felix.scr.annotations.sling.SlingServlet;
@@ -36,7 +36,7 @@ import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 /**
  * Servlet example comment for social comment entry
  */
-@SlingServlet(resourceTypes="/apps/rookiedemo/components/social/comment")
+@SlingServlet(resourceTypes="/apps/rookiejspdemo/components/social/comment")
 public class DiscussionComment extends SlingSafeMethodsServlet {
   private static final long serialVersionUID = -6549518176129073294L;
 

@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.rookie.demo.jcrdemo;
+package org.adaptto.rookie.jspdemo.jcrdemo;
 
 import java.io.IOException;
 
@@ -38,7 +38,7 @@ import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 /**
  * JCR query example
  */
-@SlingServlet(resourceTypes="/apps/rookiedemo/components/index", selectors="jcrquerysample")
+@SlingServlet(resourceTypes="/apps/rookiejspdemo/components/index", selectors="jcrquerysample")
 @SuppressWarnings("deprecation")
 public class JcrQuerySample extends SlingSafeMethodsServlet {
   private static final long serialVersionUID = -8909492203133496844L;

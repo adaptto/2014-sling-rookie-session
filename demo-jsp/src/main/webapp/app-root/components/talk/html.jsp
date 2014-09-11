@@ -21,13 +21,13 @@
     <p><a href="${resource.path}.vcs">Add to my calender</a></p>
 
     <%-- Include like my function --%>
-    <sling:include resourceType="/apps/rookiedemo/components/social/likeDisplay"/>
+    <sling:include resourceType="/apps/rookiejspdemo/components/social/likeDisplay"/>
 
     <p>
       <a href="${resource.parent.path}.html">Back to parent</a>
 
       <%-- Integrate java-based sling component via it's resource type to render previous/next links --%>
-      <sling:include resourceType="/apps/rookiedemo/components/resourceSiblingNavigator"/>
+      <sling:include resourceType="/apps/rookiejspdemo/components/resourceSiblingNavigator"/>
 
     </p>
 
@@ -35,7 +35,7 @@
 
     <%-- Include discussion sling component via it's resource type --%>
     <h3>Discussion</h3>
-    <sling:include resourceType="/apps/rookiedemo/components/social/commentList"/>
+    <sling:include resourceType="/apps/rookiejspdemo/components/social/commentList"/>
 
   </body>
 </html>

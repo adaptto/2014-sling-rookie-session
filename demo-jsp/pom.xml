@@ -24,11 +24,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.adaptto</groupId>
-  <artifactId>org.adaptto.rookie.demo</artifactId>
+  <artifactId>org.adaptto.rookie.jspdemo</artifactId>
   <packaging>bundle</packaging>
   <version>1.0.0-SNAPSHOT</version>
 
-  <name>adaptTo() 2014 Rookie Demo</name>
+  <name>adaptTo() 2014 Rookie JSP Demo</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -85,16 +85,16 @@
 
             <!-- include application path as intial content -->
             <Sling-Initial-Content>
-              SLING-INF/app-root;overwrite:=true;ignoreImportProviders:=xml;path:=/apps/rookiedemo,
+              SLING-INF/app-root;overwrite:=true;ignoreImportProviders:=xml;path:=/apps/rookiejspdemo,
               SLING-INF/sample-content;overwrite:=true;ignoreImportProviders:=xml;path:=/content
             </Sling-Initial-Content>
 
             <Export-Package>
-              org.adaptto.rookie.demo.*;version=${project.version}
+              org.adaptto.rookie.jspdemo.*;version=${project.version}
             </Export-Package>
             
             <Sling-Model-Packages>
-              org.adaptto.rookie.demo.models
+              org.adaptto.rookie.jspdemo.models
             </Sling-Model-Packages>
 
           </instructions>

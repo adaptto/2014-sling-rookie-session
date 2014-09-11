@@ -22,7 +22,7 @@ AEM6 has already everyting in place to run the demo.
 mvn -Dsling.url=http://localhost:4502 clean install sling:install
 ```
 
-- Go to demo intro page [http://localhost:4502/content/adaptto.html](http://localhost:4502/content/adaptto.html)
+- Go to demo intro page [http://localhost:4502/content/adaptto-jsp.html](http://localhost:4502/content/adaptto-jsp.html)
 
 
 
@@ -75,7 +75,7 @@ mvn -Dsling.url=http://localhost:8080 clean install sling:install
 ```
 
 - Go to demo intro page
-[http://localhost:8080/content/adaptto.html](http://localhost:8080/content/adaptto.html)
+[http://localhost:8080/content/adaptto-jsp.html](http://localhost:8080/content/adaptto-jsp.html)
 
 
 

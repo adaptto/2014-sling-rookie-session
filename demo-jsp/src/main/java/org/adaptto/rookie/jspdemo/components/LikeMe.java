@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.rookie.demo.components;
+package org.adaptto.rookie.jspdemo.components;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 /**
  * Like update action using Sling CRUD API to write to repository.
  */
-@SlingServlet(resourceTypes="/apps/rookiedemo/components/talk", selectors="likeme", methods="POST")
+@SlingServlet(resourceTypes="/apps/rookiejspdemo/components/talk", selectors="likeme", methods="POST")
 public class LikeMe extends SlingAllMethodsServlet {
   private static final long serialVersionUID = -827047552677135151L;
 

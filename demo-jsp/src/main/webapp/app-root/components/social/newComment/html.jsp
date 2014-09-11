@@ -9,7 +9,7 @@
   <form action="${resource.path}/discussion/*" method="POST" enctype="multipart/form-data">
 
     <%-- Define resource type for new node --%>
-    <input type="hidden" name="sling:resourceType" value="/apps/rookiedemo/components/social/comment"/>
+    <input type="hidden" name="sling:resourceType" value="/apps/rookiejspdemo/components/social/comment"/>
 
     <%-- Ensure proper charset encoding --%>
     <input type="hidden" name="_charset_" value="UTF-8"/>

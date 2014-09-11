@@ -7,6 +7,6 @@
 
 <head>
   <title><c:out value="${props['jcr:title']}"/></title>
-  <link href="/apps/rookiedemo/docroot/css/normalize.css" rel="stylesheet" />
-  <link href="/apps/rookiedemo/docroot/css/styles.css" rel="stylesheet" />
+  <link href="/apps/rookiejspdemo/docroot/css/normalize.css" rel="stylesheet" />
+  <link href="/apps/rookiejspdemo/docroot/css/styles.css" rel="stylesheet" />
 </head>
