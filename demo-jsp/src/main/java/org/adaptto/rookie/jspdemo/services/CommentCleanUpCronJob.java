@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.adaptto.rookie.jsüdemo.services;
+package org.adaptto.rookie.jspdemo.services;
 
 import java.util.Iterator;
 
